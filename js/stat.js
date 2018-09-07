@@ -14,7 +14,7 @@ var TITLE_GAP = 20;
 var TEXT_GAP = 170;
 var SCORE_GAP = 5;
 
-var getMaxElement = function (times) { //вычисляет максимальное время
+var getMaxElement = function (times) {
   var maxElement = times[0];
   for (var i = 0; i < times.length; i++) {
     if (times[i] > maxElement) {
@@ -56,7 +56,7 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.fillRect(CLOUD_X + CLOUD_PADDING + i * BAR_GAP, Y_BASELINE + (MAX_BAR_HEIGHT - currentBarHeight), BAR_WIDHTH, currentBarHeight);
 
     ctx.fillStyle = '#000';
-    ctx.fillText(players[i], CLOUD_X + CLOUD_PADDING + i * BAR_GAP, Y_BASELINE + TEXT_GAP)
+    ctx.fillText(players[i], CLOUD_X + CLOUD_PADDING + i * BAR_GAP, Y_BASELINE + TEXT_GAP);
 
     ctx.fillStyle = '#000';
     ctx.fillText(Math.round(times[i]), CLOUD_X + CLOUD_PADDING + i * BAR_GAP, Y_BASELINE + (MAX_BAR_HEIGHT - currentBarHeight) - SCORE_GAP);
