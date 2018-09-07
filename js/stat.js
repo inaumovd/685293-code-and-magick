@@ -13,9 +13,6 @@ var BAR_WIDHTH = 40;
 var MAX_BAR_HEIGHT = 150;
 var BAR_GAP = 50;
 var CLOUD_PADDING = 10;
-var xTitle = CLOUD_X + CLOUD_PADDING;
-var yTitle1 = CLOUD_Y + CLOUD_PADDING + FONT_GAP;
-var yTitle2 = yTitle1 + FONT_GAP;
 
 var getMaxElement = function (times) {
   var maxElement = times[0];
@@ -36,6 +33,9 @@ window.renderStatistics = function (ctx, players, times) {
   var xColumnCoordinate;
   var yColumnCoordinate;
   var barHeight;
+  var xTitle = CLOUD_X + CLOUD_PADDING;
+  var yTitle1 = CLOUD_Y + CLOUD_PADDING + FONT_GAP;
+  var yTitle2 = yTitle1 + FONT_GAP;
   var maxElement = getMaxElement(times);
 
   renderCloud(ctx, CLOUD_X + SHADOW_GAP, CLOUD_Y + SHADOW_GAP, 'rgba(0, 0, 0, 0.7)');
