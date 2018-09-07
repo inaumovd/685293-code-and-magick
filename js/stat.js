@@ -37,7 +37,7 @@ var renderTitle = function (ctx) {
   ctx.fillStyle = '#000';
   ctx.fillText('Ура вы победили!', xTitle, yTitle1);
   ctx.fillText('Список результатов:', xTitle, yTitle2);
-}
+};
 
 window.renderStatistics = function (ctx, players, times) {
 
