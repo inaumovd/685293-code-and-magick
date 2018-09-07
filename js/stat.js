@@ -29,19 +29,23 @@ var renderCloud = function (ctx, x, y, color) { // рисует облако
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGTH);
 };
 
-window.renderStatistics = function (ctx, players, times) {
-
+var renderTitle = function (ctx) {
   var xTitle = CLOUD_X + CLOUD_PADDING;
   var yTitle1 = CLOUD_Y + CLOUD_PADDING;
   var yTitle2 = yTitle1 + TITLE_GAP;
-  var maxElement = getMaxElement(times);
-
-  renderCloud(ctx, CLOUD_X + SHADOW_GAP, CLOUD_Y + SHADOW_GAP, 'rgba(0, 0, 0, 0.7)');
-  renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
 
   ctx.fillStyle = '#000';
   ctx.fillText('Ура вы победили!', xTitle, yTitle1);
   ctx.fillText('Список результатов:', xTitle, yTitle2);
+}
+
+window.renderStatistics = function (ctx, players, times) {
+
+  var maxElement = getMaxElement(times);
+
+  renderCloud(ctx, CLOUD_X + SHADOW_GAP, CLOUD_Y + SHADOW_GAP, 'rgba(0, 0, 0, 0.7)');
+  renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
+  renderTitle(ctx);
 
   for (var i = 0; i < players.length; i++) {
 
