@@ -33,10 +33,10 @@ window.renderStatistics = function (ctx, players, times) {
   var xColumnCoordinate;
   var yColumnCoordinate;
   var barHeight;
+  var maxElement = getMaxElement(times);
   var xTitle = CLOUD_X + CLOUD_PADDING;
   var yTitle1 = CLOUD_Y + CLOUD_PADDING + FONT_GAP;
   var yTitle2 = yTitle1 + FONT_GAP;
-  var maxElement = getMaxElement(times);
 
   renderCloud(ctx, CLOUD_X + SHADOW_GAP, CLOUD_Y + SHADOW_GAP, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
