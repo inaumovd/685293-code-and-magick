@@ -12,7 +12,7 @@ var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)
 var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 
 var getWizardName = function (names, surnames) {
-  return names[Math.round (Math.random () * (names.length - 1))] + ' ' + surnames[Math.round (Math.random () * (surnames.length-1))];
+  return names[Math.round(Math.random() * (names.length - 1))] + ' ' + surnames[Math.round(Math.random() * (surnames.length - 1))];
 };
 
 var getRandomColor = function (colors) {
