@@ -77,6 +77,6 @@ for (var i = 0; i < 4; i++) {
   fragment.appendChild(wizardElement);
 }
 
-  similarListElement.appendChild(fragment);
+similarListElement.appendChild(fragment);
 
 document.querySelector('.setup-similar').classList.remove('hidden');
