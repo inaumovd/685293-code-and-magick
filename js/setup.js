@@ -16,7 +16,7 @@ var NAMES = [
   'Юлия',
   'Люпита',
   'Вашингтон'
-  ];
+];
 var SURNAMES = [
   'да Марья',
   'Верон',
@@ -26,7 +26,7 @@ var SURNAMES = [
   'Топольницкая',
   'Нионго',
   'Ирвинг'
-  ];
+];
 var COAT_COLORS = [
   'rgb(101, 137, 164)',
   'rgb(241, 43, 107)',
@@ -40,7 +40,7 @@ var EYES_COLORS = [
   'blue',
   'yellow',
   'green'
-  ];
+];
 var getRandomItem = function (items) {
   return items[Math.round(Math.random() * (items.length - 1))];
 };
