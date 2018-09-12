@@ -5,7 +5,6 @@ var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
   .content
   .querySelector('.setup-similar-item');
-var fragment = document.createDocumentFragment();
 var wizardsList = [];
 var NAMES = [
   'Иван',
@@ -57,8 +56,8 @@ var getWizard = function () {
   return wizard;
 };
 
-var getWizardsList = function () {
-  for (var i = 0; i < 4; i++) {
+var getWizardsList = function (quantity) {
+  for (var i = 0; i < quantity; i++) {
     wizardsList[i] = getWizard();
   }
   return wizardsList;
@@ -66,17 +65,35 @@ var getWizardsList = function () {
 
 userDialog.classList.remove('hidden');
 
-wizardsList = getWizardsList();
-
-for (var i = 0; i < 4; i++) {
+var renderWizardItem = function (item) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
-  wizardElement.querySelector('.setup-similar-label').textContent = wizardsList[i].name;
-  wizardElement.querySelector('.wizard-coat').style.fill = wizardsList[i].coatColor;
-  wizardElement.querySelector('.wizard-eyes').style.fill = wizardsList[i].eyesColor;
-
-  fragment.appendChild(wizardElement);
+  wizardElement.querySelector('.setup-similar-label').textContent = item.name;
+  wizardElement.querySelector('.wizard-coat').style.fill = item.coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill = item.eyesColor;
+  return wizardElement;
 }
 
-similarListElement.appendChild(fragment);
+var appendWizardElements = function (list) {
+  var fragment = document.createDocumentFragment();
+  for (var i = 0; i < list.length; i++) {
+    fragment.appendChild(renderWizardItem(list[i]));
+  }
+  similarListElement.appendChild(fragment);
+};
+
+appendWizardElements(getWizardsList(5))
+
+// wizardsList = getWizardsList();
+
+// for (var i = 0; i < 4; i++) {
+//   var wizardElement = similarWizardTemplate.cloneNode(true);
+//   wizardElement.querySelector('.setup-similar-label').textContent = wizardsList[i].name;
+//   wizardElement.querySelector('.wizard-coat').style.fill = wizardsList[i].coatColor;
+//   wizardElement.querySelector('.wizard-eyes').style.fill = wizardsList[i].eyesColor;
+
+//   fragment.appendChild(wizardElement);
+// }
+
+// similarListElement.appendChild(fragment);
 
 document.querySelector('.setup-similar').classList.remove('hidden');
