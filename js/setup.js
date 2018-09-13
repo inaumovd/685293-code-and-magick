@@ -1,7 +1,7 @@
 'use strict';
 
 var setupOpen = document.querySelector('.setup-open');
-var setup = document.querySelector('.setup')
+var setup = document.querySelector('.setup');
 var setupClose = setup.querySelector('.setup-close');
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
@@ -121,18 +121,18 @@ var openPopup = function () {
   setup.classList.remove('hidden');
 
   setupClose.addEventListener('click', closePopup);
-  setupClose.addEventListener('keydown', function(evt) {
-    if (evt.keyCode == ENTER_KEYCODE) {
+  setupClose.addEventListener('keydown', function (evt) {
+    if (evt.keyCode === ENTER_KEYCODE) {
       closePopup();
     }
   });
   document.addEventListener('keydown', onPopupEscPress);
 
-  setupName.addEventListener('focus', function() {
+  setupName.addEventListener('focus', function () {
     document.removeEventListener('keydown', onPopupEscPress);
   });
 
-  setupName.addEventListener('blur', function() {
+  setupName.addEventListener('blur', function () {
     document.addEventListener('keydown', onPopupEscPress);
   });
 };
@@ -140,19 +140,19 @@ var openPopup = function () {
 setupOpen.addEventListener('click', openPopup);
 setupOpen.addEventListener('keydown', onPopupEnterPress);
 
-wizardCoat.addEventListener('click', function() {
-  var randomCoatColor = getRandomItem(COAT_COLORS)
+wizardCoat.addEventListener('click', function () {
+  var randomCoatColor = getRandomItem(COAT_COLORS);
   wizardCoat.style.fill = randomCoatColor;
   document.querySelector('input[name = coat-color]').value = randomCoatColor;
 });
 
-wizardEyes.addEventListener('click', function() {
+wizardEyes.addEventListener('click', function () {
   var randomEyesColor = getRandomItem(EYES_COLORS);
   wizardEyes.style.fill = randomEyesColor;
   document.querySelector('input[name = eyes-color]').value = randomEyesColor;
 });
 
-fireball.addEventListener('click', function() {
+fireball.addEventListener('click', function () {
   var randomFireballColor = getRandomItem(FIREBALL_COLORS);
   fireball.style.background = randomFireballColor;
   document.querySelector('input[name = fireball-color]').value = randomFireballColor;
