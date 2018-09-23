@@ -1,8 +1,4 @@
 'use strict';
-
-var setupOpen = document.querySelector('.setup-open');
-var setup = document.querySelector('.setup');
-var setupClose = setup.querySelector('.setup-close');
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
   .content
@@ -10,9 +6,6 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
 var wizardCoat = document.querySelector('.setup-wizard .wizard-coat');
 var wizardEyes = document.querySelector('.setup-wizard .wizard-eyes');
 var fireball = document.querySelector('.setup-fireball-wrap');
-var setupName = setup.querySelector('.setup-user-name');
-var ENTER_KEYCODE = 13;
-var ESC_KEYCODE = 27;
 var wizardsList = [];
 var NAMES = [
   'Иван',
@@ -100,45 +93,6 @@ var appendWizardElements = function (list) {
 appendWizardElements(getWizardsList(4));
 
 document.querySelector('.setup-similar').classList.remove('hidden');
-
-var onPopupEscPress = function (evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
-    closePopup();
-  }
-};
-
-var onPopupEnterPress = function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    openPopup();
-  }
-};
-
-var closePopup = function () {
-  setup.classList.add('hidden');
-};
-
-var openPopup = function () {
-  setup.classList.remove('hidden');
-
-  setupClose.addEventListener('click', closePopup);
-  setupClose.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {
-      closePopup();
-    }
-  });
-  document.addEventListener('keydown', onPopupEscPress);
-
-  setupName.addEventListener('focus', function () {
-    document.removeEventListener('keydown', onPopupEscPress);
-  });
-
-  setupName.addEventListener('blur', function () {
-    document.addEventListener('keydown', onPopupEscPress);
-  });
-};
-
-setupOpen.addEventListener('click', openPopup);
-setupOpen.addEventListener('keydown', onPopupEnterPress);
 
 wizardCoat.addEventListener('click', function () {
   var randomCoatColor = getRandomItem(COAT_COLORS);
