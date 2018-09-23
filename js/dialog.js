@@ -4,7 +4,6 @@
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
   var setupName = setup.querySelector('.setup-user-name');
-  var dialogHandle = setup.querySelector('.setup-user-pic');
   var dialogHandler = setup.querySelector('.upload');
 
   var onPopupEscPress = function (evt) {
@@ -23,19 +22,19 @@
     setup.style.left = null;
   };
 
-  setupOpen.addEventListener('click', function() {
+  setupOpen.addEventListener('click', function () {
     openPopup();
   });
 
-  setupOpen.addEventListener('keydown', function(evt) {
+  setupOpen.addEventListener('keydown', function (evt) {
     window.util.isEnterEvent(evt, openPopup);
   });
 
-  setupClose.addEventListener('click', function() {
+  setupClose.addEventListener('click', function () {
     closePopup();
   });
 
-  setupClose.addEventListener('keydown', function(evt) {
+  setupClose.addEventListener('keydown', function (evt) {
     window.util.isEnterEvent(evt, closePopup);
   });
 
@@ -47,7 +46,7 @@
     document.addEventListener('keydown', onPopupEscPress);
   });
 
-  dialogHandler.addEventListener('mousedown', function(evt) {
+  dialogHandler.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
     var startCoords = {
@@ -75,38 +74,23 @@
       setup.style.left = (setup.offsetLeft - shift.x) + 'px';
     };
 
-  var onMouseUp = function (upEvt) {
-    upEvt.preventDefault();
+    var onMouseUp = function (upEvt) {
+      upEvt.preventDefault();
 
-    if (dragged) {
-      var onClickPreventDefault = function (evt) {
-        evt.preventDefault();
-        dialogHandler.removeEventListener('click', onClickPreventDefault);
-      };
+      if (dragged) {
+        var onClickPreventDefault = function (clickEvt) {
+          clickEvt.preventDefault();
+          dialogHandler.removeEventListener('click', onClickPreventDefault);
+        };
         dialogHandler.addEventListener('click', onClickPreventDefault);
-    }
+      }
 
-    document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseup', onMouseUp);
-  };
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
 
 
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
   });
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
